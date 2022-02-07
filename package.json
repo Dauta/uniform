@@ -18,10 +18,12 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "prettier": "^2.5.1"
   },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Dauta/uniform.git"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "keywords": [
     "linter",
