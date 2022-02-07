@@ -4,7 +4,7 @@
   "description": "All in one code linter and formatter for JS and TS",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo No tests"
   },
   "author": "Irakli Dautashvili | idauta@gmail.com",
   "license": "ISC",
