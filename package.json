@@ -1,5 +1,5 @@
 {
-  "name": "uniform",
+  "name": "@dauta/uniform",
   "version": "0.0.1",
   "description": "All in one code linter and formatter for JS and TS",
   "main": "index.js",
@@ -17,5 +17,18 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "prettier": "^2.5.1"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dauta/uniform.git"
+  },
+  "keywords": [
+    "linter",
+    "formatter"
+  ],
+  "bugs": {
+    "url": "https://github.com/Dauta/uniform/issues"
+  },
+  "homepage": "https://github.com/Dauta/uniform#readme"
 }
