@@ -1,6 +1,6 @@
 {
   "name": "@dauta/uniform",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "All in one code linter and formatter for JS and TS",
   "exports": "./index.js",
   "bin": "./index.js",
