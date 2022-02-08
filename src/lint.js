@@ -1,6 +1,39 @@
-const { ESLint } = require('eslint');
+import { ESLint } from 'eslint';
+import chalk from 'chalk';
+import ora from 'ora';
 
-async function lint(fix) {
+const logMessage = (message) => {
+  const severity =
+    message.severity === 1
+      ? `[${chalk.yellow('WARN')}]`
+      : `[${chalk.red('ERROR')}]`;
+  const line = chalk.blueBright.bold(message.line);
+  const messageText = chalk.yellowBright(message.message);
+
+  console.log(`\t${severity} at line ${line}: ${messageText}\n`);
+};
+
+const logResult = (total, issues) => {
+  const totalText = `Linted ${chalk.bold(total)} ${
+    total === 1 ? 'file' : 'files'
+  }`;
+  const issuesText =
+    issues > 0
+      ? `${chalk.bold.bgRed.whiteBright(issues)} issues found.`
+      : `${chalk.green('No issues found!')} 🎉`;
+
+  console.log(chalk.magentaBright(`${totalText}. ${issuesText}`));
+};
+
+export const lint = async (fix) => {
+  const spinner = ora({
+    text: 'Linting your code. Please, wait...\n',
+    color: 'magenta',
+    spinner: 'dots'
+  });
+
+  spinner.start();
+
   const linter = new ESLint({
     errorOnUnmatchedPattern: false,
     extensions: ['ts', 'js', 'mjs', 'jsx', 'tsx'],
@@ -17,23 +50,22 @@ async function lint(fix) {
     return acc + curr.messages.length;
   }, 0);
 
-  if (totalIssues === 0) return;
+  spinner.succeed('🦄🎩');
+  if (totalIssues === 0) {
+    logResult(results.length, totalIssues);
+    return;
+  }
 
   results.forEach((result) => {
     if (result.messages.length === 0) return;
     console.log('\n');
-    console.log('->', result.filePath + '\n');
+    console.log(
+      chalk.bold.yellowBright('-->'),
+      chalk.underline(result.filePath) + '\n'
+    );
 
-    result.messages.map((message) => {
-      console.log(`\tat line ${message.line}: ${message.message}\n`);
-    });
+    result.messages.map(logMessage);
   });
 
-  console.log(
-    `Linted ${results.length} ${
-      results.length === 1 ? 'file' : 'files'
-    }. Found ${totalIssues} ${totalIssues === 1 ? 'issue' : 'issues'}.`
-  );
-}
-
-module.exports = { lint };
+  logResult(results.length, totalIssues);
+};

@@ -1,12 +1,12 @@
 #!/usr/bin/env node
+import { lint } from './src/lint.js';
+import { init } from './src/uniform.js';
+
 const [command, flag] = process.argv.slice(2);
 
 if (command === 'lint') {
   const fix = flag === '--fix';
-  const { lint } = require('./src/lint');
   lint(fix);
-  return;
+} else {
+  init();
 }
-
-const { init } = require('./src/uniform');
-init();

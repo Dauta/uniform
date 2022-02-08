@@ -1,6 +1,6 @@
-const fs = require('fs');
+import fs from 'fs';
 
-function init() {
+export const init = () => {
   const TARGET_DIR = process.cwd();
 
   const CONFIG_TARGET = `${TARGET_DIR}/.eslintrc.json`;
@@ -19,6 +19,4 @@ function init() {
   fs.copyFileSync(`${__dirname}/../.prettierrc`, PRETTIER_TARGET);
 
   console.log('Successfully initialized uniform! 🦄🎩');
-}
-
-module.exports = { init };
+};

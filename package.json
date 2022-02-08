@@ -2,8 +2,9 @@
   "name": "@dauta/uniform",
   "version": "0.3.0",
   "description": "All in one code linter and formatter for JS and TS",
-  "main": "./index.js",
+  "exports": "./index.js",
   "bin": "./index.js",
+  "type": "module",
   "scripts": {
     "test": "echo No tests"
   },
@@ -12,16 +13,21 @@
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.10.2",
     "@typescript-eslint/parser": "^5.10.2",
+    "chalk": "^4.1.2",
     "eslint": "^8.8.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
+    "ora": "^6.0.1",
     "prettier": "^2.5.1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Dauta/uniform.git"
+  },
+  "engines": {
+    "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
   },
   "publishConfig": {
     "access": "public"
