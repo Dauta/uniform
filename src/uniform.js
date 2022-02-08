@@ -10,13 +10,13 @@ function init() {
   if (fs.existsSync(CONFIG_TARGET)) {
     fs.rmSync(CONFIG_TARGET);
   }
-  fs.symlinkSync(`${__dirname}/.eslintrc.json`, CONFIG_TARGET);
+  fs.copyFileSync(`${__dirname}/../.eslintrc.json`, CONFIG_TARGET);
 
   // copy prettierrc
   if (fs.existsSync(PRETTIER_TARGET)) {
     fs.rmSync(PRETTIER_TARGET);
   }
-  fs.symlinkSync(`${__dirname}/.prettierrc`, PRETTIER_TARGET);
+  fs.copyFileSync(`${__dirname}/../.prettierrc`, PRETTIER_TARGET);
 
   console.log('Successfully initialized uniform! 🦄🎩');
 }

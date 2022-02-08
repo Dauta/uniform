@@ -11,7 +11,7 @@ All-in-one code linter and formatter for TypeScript and JavaScript
 
 Installing the package will install eslint and prettier as a dependency of your project, along with several plugins and configuration files. 
 
-Running the `uniform` script, will symlink the predefined configuration files into the root of your project. This will allow your IDE (or whatever extension you're using to run eslint) to read the correct configurations and give realtime feedback on your code. 
+Running the `uniform` script, will copy the predefined configuration files into the root of your project. This will allow your IDE (or whatever extension you're using to run eslint) to read the correct configurations and give realtime feedback on your code. 
 
 ## 💻 CLI
 
