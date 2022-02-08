@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 function init() {
   const TARGET_DIR = process.cwd();
 
