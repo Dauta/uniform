@@ -1,7 +1,12 @@
 #!/usr/bin/env node
-const fs = require('fs');
+const [arg] = process.argv.slice(2);
 
-const TARGET_DIR = process.cwd();
+if (arg === 'lint') {
+  const { lint } = require('./src/lint');
+  lint();
 
-fs.symlinkSync(`${__dirname}/.eslintrc.json`, `${TARGET_DIR}/.eslintrc.json`);
-fs.symlinkSync(`${__dirname}/.prettierrc`, `${TARGET_DIR}/.prettierrc`);
+  return;
+}
+
+const { init } = require('./src/uniform');
+init();
