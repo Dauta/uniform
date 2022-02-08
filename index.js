@@ -1,10 +1,10 @@
 #!/usr/bin/env node
-const [arg] = process.argv.slice(2);
+const [command, flag] = process.argv.slice(2);
 
-if (arg === 'lint') {
+if (command === 'lint') {
+  const fix = flag === '--fix';
   const { lint } = require('./src/lint');
-  lint();
-
+  lint(fix);
   return;
 }
 
