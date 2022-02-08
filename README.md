@@ -4,7 +4,7 @@ All-in-one code linter and formatter for TypeScript and JavaScript
 
 ## ⚡️ Quickstart
 
-- `npm install @dauta/uniform` or `yarn add @dauta/uniform`
+- `npm install @dauta/uniform --save-dev` or `yarn add -D @dauta/uniform`
 - `npx uniform` or `yarn uniform`
 
 _Note:_ You _might_ need to restart ESLint server in your IDE for the config files to get picked up.
@@ -18,6 +18,9 @@ Running the `uniform` script, will copy the predefined configuration files into 
 ## 💻 CLI
 
 To lint your code manually, run `npx uniform lint` or `yarn uniform lint`.
+
+### Fix
+
 To auto-fix some issues, add the `--fix` flag to the above command.
 That's it :)
 
