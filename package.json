@@ -16,9 +16,12 @@
     "chalk": "^4.1.2",
     "eslint": "^8.8.0",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-define-config": "^1.2.4",
+    "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
+    "inquirer": "^8.2.0",
     "nanospinner": "^1.0.0",
     "prettier": "^2.5.1"
   },
