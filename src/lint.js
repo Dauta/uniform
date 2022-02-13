@@ -1,6 +1,6 @@
 import { ESLint } from 'eslint';
 import chalk from 'chalk';
-import ora from 'ora';
+import { createSpinner } from 'nanospinner';
 
 const logMessage = (message) => {
   const severity =
@@ -19,17 +19,15 @@ const logResult = (total, issues) => {
   }`;
   const issuesText =
     issues > 0
-      ? `${chalk.bold.bgRed.whiteBright(issues)} issues found.`
+      ? `${chalk.bold.bgRed.whiteBright(' ' + issues + ' ')} issues found.`
       : `${chalk.green('No issues found!')} 🎉`;
 
   console.log(chalk.magentaBright(`${totalText}. ${issuesText}`));
 };
 
 export const lint = async (fix) => {
-  const spinner = ora({
-    text: 'Linting your code. Please, wait...\n',
+  const spinner = createSpinner('Linting your code. Please, wait...\n', {
     color: 'magenta',
-    spinner: 'dots'
   });
 
   spinner.start();
@@ -50,7 +48,8 @@ export const lint = async (fix) => {
     return acc + curr.messages.length;
   }, 0);
 
-  spinner.succeed('🦄🎩');
+  spinner.clear();
+  spinner.success({ text: 'Success!' });
   if (totalIssues === 0) {
     logResult(results.length, totalIssues);
     return;
