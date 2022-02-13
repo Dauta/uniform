@@ -41,8 +41,5 @@
   "bugs": {
     "url": "https://github.com/Dauta/uniform/issues"
   },
-  "homepage": "https://github.com/Dauta/uniform#readme",
-  "devDependencies": {
-    "eslint-define-config": "^1.2.5"
-  }
+  "homepage": "https://github.com/Dauta/uniform#readme"
 }

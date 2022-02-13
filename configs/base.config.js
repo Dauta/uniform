@@ -1,6 +1,4 @@
-import { defineConfig } from 'eslint-define-config';
-
-export const nodeBase = defineConfig({
+export const nodeBase = {
   env: {
     es2021: true,
     node: true,
@@ -19,9 +17,9 @@ export const nodeBase = defineConfig({
   },
   settings: {},
   ignorePatterns: ['node_modules', '**/__generated__/*', 'public/**/*'],
-});
+};
 
-export const browserBase = defineConfig({
+export const browserBase = {
   env: {
     browser: true,
     es2021: true,
@@ -37,4 +35,4 @@ export const browserBase = defineConfig({
   },
   settings: {},
   ignorePatterns: ['node_modules', '**/__generated__/*', 'public/**/*'],
-});
+};
