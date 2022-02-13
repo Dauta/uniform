@@ -36,8 +36,8 @@ const generateEslintConfig = (targetDir, options) => {
 
   if (usesTypescript) {
     config.extends = [
-      'plugin:@typescript-eslint/recommended',
       ...config.extends,
+      'plugin:@typescript-eslint/recommended',
     ];
 
     config.parser = '@typescript-eslint/parser';
@@ -52,10 +52,10 @@ const generateEslintConfig = (targetDir, options) => {
 
   if (usesReact) {
     config.extends = [
-      'plugin:react/recommended',
-      'plugin:react/jsx-runtime',
-      'plugin:react-hooks/recommended',
       ...config.extends,
+      'plugin:react/recommended',
+      'plugin:react-hooks/recommended',
+      'plugin:react/jsx-runtime',
     ];
 
     config.parserOptions['ecmaFeatures'] = {
@@ -67,10 +67,15 @@ const generateEslintConfig = (targetDir, options) => {
     config.settings['react'] = {
       version: 'detect',
     };
+
+    config.rules['react-hooks/rules-of-hooks'] = 'error';
+    config.rules['react-hooks/exhaustive-deps'] = 'warn';
   }
 
-  const configContent = JSON.stringify(config, null, 2);
+  // prettier needs to be the last extend
+  config.extends.push('plugin:prettier/recommended');
 
+  const configContent = JSON.stringify(config, null, 2);
   fs.writeFileSync(targetFile, configContent);
 };
 
@@ -117,7 +122,7 @@ export const init = async () => {
     generatePrettierConfig(TARGET_DIR);
 
     spinner.success({
-      text: 'Successfully initialized uniform! Enjoy! 🦄🎩',
+      text: 'Successfully initialized Uniform! Enjoy! 🦄🎩',
     });
   } catch (err) {
     spinner.error({ text: 'Something went wrong' });
