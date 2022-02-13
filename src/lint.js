@@ -20,7 +20,7 @@ const logResult = (total, issues) => {
   const issuesText =
     issues > 0
       ? `${chalk.bold.bgRed.whiteBright(' ' + issues + ' ')} ${
-          issues.length === 1 ? 'issue' : 'issues'
+          issues === 1 ? 'issue' : 'issues'
         } found.`
       : `${chalk.green('No issues found!')} 🎉`;
 
