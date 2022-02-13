@@ -2,23 +2,23 @@ import fs from 'fs';
 import { createSpinner } from 'nanospinner';
 import inquirer from 'inquirer';
 import chalk from 'chalk';
-import { browserBase, nodeBase } from '../configs/base.config.js';
+import { browserBase, nodeBase, prettierConfig } from '../configs/index.js';
 
 const TARGET_DIR = process.cwd();
 
-const generatePrettierConfig = (target) => {
-  const PRETTIER_TARGET = `${target}/.prettierrc`;
-  const PRETTIER_SOURCE = new URL('../configs/.prettierrc', import.meta.url)
-    .pathname;
+const generatePrettierConfig = (targetDir) => {
+  const targetFile = `${targetDir}/.prettierrc`;
 
-  if (fs.existsSync(PRETTIER_TARGET)) {
-    fs.rmSync(PRETTIER_TARGET);
+  const configContent = JSON.stringify(prettierConfig, null, 2);
+
+  if (fs.existsSync(targetFile)) {
+    fs.rmSync(targetFile);
   }
-  fs.copyFileSync(PRETTIER_SOURCE, PRETTIER_TARGET);
+  fs.writeFileSync(targetFile, configContent);
 };
 
-const generateEslintConfig = (target, options) => {
-  const CONFIG_TARGET = `${target}/.eslintrc.json`;
+const generateEslintConfig = (targetDir, options) => {
+  const targetFile = `${targetDir}/.eslintrc.json`;
   const { environment, usesTypescript, usesReact } = options;
 
   let config;
@@ -71,7 +71,7 @@ const generateEslintConfig = (target, options) => {
 
   const configContent = JSON.stringify(config, null, 2);
 
-  fs.writeFileSync(CONFIG_TARGET, configContent);
+  fs.writeFileSync(targetFile, configContent);
 };
 
 export const init = async () => {
