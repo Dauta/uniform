@@ -8,4 +8,5 @@ export const incompatibleNodeRules: Rules = {
   'node/no-mixed-requires': 'off',
   'node/no-unpublished-import': 'off',
   'node/no-unpublished-require': 'off',
+  'node/shebang': 'off',
 };

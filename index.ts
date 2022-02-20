@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { lint } from './src/lint';
 import { init } from './src/uniform';
 
