@@ -1,2 +1,7 @@
 .eslintrc.json
 .prettierrc
+src
+configs
+types
+tsconfig.json
+index.ts

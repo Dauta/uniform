@@ -1,12 +1,11 @@
-export const nodeBase = {
+import type { StrictEslintConfig } from '../types';
+
+export const nodeBase: StrictEslintConfig = {
   env: {
     es2021: true,
     node: true,
   },
-  extends: [
-    'eslint:recommended',
-    'plugin:node/recommended',
-  ],
+  extends: ['eslint:recommended', 'plugin:node/recommended'],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
@@ -16,10 +15,17 @@ export const nodeBase = {
     'prettier/prettier': 'warn',
   },
   settings: {},
-  ignorePatterns: ['node_modules', '**/__generated__/*', 'public/**/*'],
+  ignorePatterns: [
+    'node_modules',
+    'public',
+    'dist',
+    'build',
+    'out',
+    '**/__generated__/*',
+  ],
 };
 
-export const browserBase = {
+export const browserBase: StrictEslintConfig = {
   env: {
     browser: true,
     es2021: true,
@@ -34,5 +40,12 @@ export const browserBase = {
     'prettier/prettier': 'warn',
   },
   settings: {},
-  ignorePatterns: ['node_modules', '**/__generated__/*', 'public/**/*'],
+  ignorePatterns: [
+    'node_modules',
+    'public',
+    'dist',
+    'build',
+    'out',
+    '**/__generated__/*',
+  ],
 };

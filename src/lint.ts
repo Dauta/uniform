@@ -1,8 +1,8 @@
-import { ESLint } from 'eslint';
+import { ESLint, Linter } from 'eslint';
 import chalk from 'chalk';
 import { createSpinner } from 'nanospinner';
 
-const logMessage = (message) => {
+const logMessage = (message: Linter.LintMessage) => {
   const severity =
     message.severity === 1
       ? `[${chalk.yellow('WARN')}]`
@@ -13,7 +13,7 @@ const logMessage = (message) => {
   console.log(`\t${severity} at line ${line}: ${messageText}\n`);
 };
 
-const logResult = (total, issues) => {
+const logResult = (total: number, issues: number) => {
   const totalText = `Linted ${chalk.bold(total)} ${
     total === 1 ? 'file' : 'files'
   }`;
@@ -27,7 +27,7 @@ const logResult = (total, issues) => {
   console.log(chalk.magentaBright(`${totalText}. ${issuesText}`));
 };
 
-export const lint = async (fix) => {
+export const lint = async (fix: boolean) => {
   const spinner = createSpinner('Linting your code. Please, wait...\n', {
     color: 'magenta',
   });

@@ -1,6 +1,5 @@
-#!/usr/bin/env node
-import { lint } from './src/lint.js';
-import { init } from './src/uniform.js';
+import { lint } from './src/lint';
+import { init } from './src/uniform';
 
 const [command, flag] = process.argv.slice(2);
 
